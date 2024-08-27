@@ -74,3 +74,7 @@ function getHumanChoice(){
             return 3;
     }
 }
+
+//These variables keep track of the scores
+let humanScore = 0;
+let computerScore = 0;
