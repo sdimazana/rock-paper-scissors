@@ -76,10 +76,6 @@ function getHumanChoice(){
     }
 }
 
-//These variables keep track of the scores
-let humanScore = 0;
-let computerScore = 0;
-
 /*
     playRound() algorithm
 
@@ -107,44 +103,6 @@ let computerScore = 0;
 */
 
 
-function playRound(player, computer){
-    if(computer === player){
-        humanScore++;
-        computerScore++;
-        console.log(`Tie! The computer also chose ${computer}`);
-       return;
-    }
-    switch(player){
-        case "ROCK": 
-            if (computer == "SCISSORS") {
-                humanScore++;
-                console.log(`You win! ${player} beats ${computer}`);
-            } else {
-                computerScore++;
-                console.log(`You lose! ${computer} beats ${player}`);
-            }
-        break;
-        case "PAPER": 
-            if (computer == "ROCK") {
-                humanScore++;
-                console.log(`You win! ${player} beats ${computer}`);
-            } else {
-                computerScore++;
-                console.log(`You lose! ${computer} beats ${player}`);
-            }
-        break;
-        case "SCISSORS": 
-            if (computer == "PAPER") {
-                humanScore++;
-                console.log(`You win! ${player} beats ${computer}`);
-            } else {
-                computerScore++;
-                console.log(`You lose! ${computer} beats ${player}`);
-            }
-        break;
-    }
-}
-
 /*
     playGame() algorithm
 
@@ -164,3 +122,63 @@ function playRound(player, computer){
     If humanScore is greater than computerScore, display winner announcement.
     If humanScore is less than computerScore, display loser announcement.
 */
+
+function playGame() {
+
+    //These variables keep track of the scores
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(player, computer){
+        if(computer === player){
+            humanScore++;
+            computerScore++;
+            console.log(`Tie! The computer also chose ${computer}`);
+        return;
+        }
+        switch(player){
+            case "ROCK": 
+                if (computer == "SCISSORS") {
+                    humanScore++;
+                    console.log(`You win! ${player} beats ${computer}`);
+                } else {
+                    computerScore++;
+                    console.log(`You lose! ${computer} beats ${player}`);
+                }
+            break;
+            case "PAPER": 
+                if (computer == "ROCK") {
+                    humanScore++;
+                    console.log(`You win! ${player} beats ${computer}`);
+                } else {
+                    computerScore++;
+                    console.log(`You lose! ${computer} beats ${player}`);
+                }
+            break;
+            case "SCISSORS": 
+                if (computer == "PAPER") {
+                    humanScore++;
+                    console.log(`You win! ${player} beats ${computer}`);
+                } else {
+                    computerScore++;
+                    console.log(`You lose! ${computer} beats ${player}`);
+                }
+            break;
+        }
+    }
+
+    let roundCounter = 0;
+
+    while (roundCounter < 5) {
+        roundCounter++;
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+    
+    if (humanScore === computerScore) {
+        console.log("5 rounds are over. Game is a tie!");
+    } else if (humanScore < computerScore){
+        console.log("5 rounds are over. You have lost.");
+    } else {
+        console.log("5 rounds are over. You have won!");
+    }
+}
