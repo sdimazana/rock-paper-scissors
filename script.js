@@ -83,6 +83,64 @@ let computerScore = 0;
 /*
     playRound() algorithm
 
-    Compare return values from getHumanChoice() to getComputerChoice()
-
+    Evaluate the player's choice:
+        If the player chose rock, they will win if the computer chose scissors
+        If the player chose paper, they will win if the computer chose rock
+        If the player chose scissors, they will win if the computer chose paper
+        If the player chose the same option as the computer, it is a tie.
+    If the player won, increment their score by 1 and display a winner announcement.
+    If the player lost, increment computer score by 1 and display loser announcement.
+    If it is a tie, increment both scores and display tie announcement.
 */
+
+/*
+    playRound() pseudocode
+
+    Use a switch statement for different cases of player response.
+    Within each case, use if statements for different computer responses.
+    If the player wins, increment humanScore.
+    If the computer wins, increment computerScore.
+    If it is a tie, increment humanScore and computerScore.
+    Display winning announcement if player wins.
+    Display losing announcement if player loses.
+    Display tie announcement if it is a tie.
+*/
+
+
+function playRound(player, computer){
+    if(computer === player){
+        humanScore++;
+        computerScore++;
+        console.log(`Tie! The computer also chose ${computer}`);
+       return;
+    }
+    switch(player){
+        case "ROCK": 
+            if (computer == "SCISSORS") {
+                humanScore++;
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                computerScore++;
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
+        case "PAPER": 
+            if (computer == "ROCK") {
+                humanScore++;
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                computerScore++;
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
+        case "SCISSORS": 
+            if (computer == "PAPER") {
+                humanScore++;
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                computerScore++;
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
+    }
+}
