@@ -22,11 +22,11 @@
 function getComputerChoice(){
     let randomNumber = Math.random();
     if (randomNumber < 0.33){
-        return "rock";
+        return "ROCK";
     } else if (randomNumber < 0.66){
-        return "paper";
+        return "PAPER";
     } else {
-        return "scissors";
+        return "SCISSORS";
     }
 }
 
@@ -42,14 +42,15 @@ function getComputerChoice(){
     getHumanChoice() pseudocode
 
     Prompt user to enter rock, paper or scissors
-    Turn string to all uppercase characters
+    Store response in humanChoice variable
+    Turn humanChoice to all uppercase characters
     If user entered something invalid, loop prompt function until valid response
-    If user input equals ROCK
-        Log "You chose rock" to the console and return integer 1.
-    If user input equals PAPER
-        Log "You chose paper" to the console and return integer 2.
-    If user input equals SCISSORS
-        Log "You chose scissors" to the console and return integer 3.
+    If humanChoice equals ROCK
+        Log "You chose rock" to the console and return humanChoice
+    If humanChoice equals PAPER
+        Log "You chose paper" to the console and return humanChoice
+    If humanChoice equals SCISSORS
+        Log "You chose scissors" to the console and return humanChoice
 */
 
 function getHumanChoice(){
@@ -65,16 +66,23 @@ function getHumanChoice(){
     switch(humanChoice){
         case "ROCK": 
             console.log("You chose ROCK");
-            return 1;
+            return humanChoice;
         case "PAPER": 
             console.log("You chose PAPER");
-            return 2;
+            return humanChoice;
         case "SCISSORS": 
             console.log("You chose SCISSORS");
-            return 3;
+            return humanChoice;
     }
 }
 
 //These variables keep track of the scores
 let humanScore = 0;
 let computerScore = 0;
+
+/*
+    playRound() algorithm
+
+    Compare return values from getHumanChoice() to getComputerChoice()
+
+*/
