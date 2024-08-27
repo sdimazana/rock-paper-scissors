@@ -144,3 +144,23 @@ function playRound(player, computer){
         break;
     }
 }
+
+/*
+    playGame() algorithm
+
+    This function will keep track of the number of rounds that have been played.
+    After five rounds, the winner is decided.
+    If the player won at least 3 rounds, they are the winner.
+    If the computer won at least 3 rounds, they are the winner.
+    If there were 5 consecutive ties, there is an overall tie.
+*/
+
+/*
+    playGame() pseudocode
+
+    Declare roundCounter which increments each time playRound() is called.
+    While roundCounter is less than or equal to 5, call playRound().
+    If humanScore and computerScore are equal, display tie announcement.
+    If humanScore is greater than computerScore, display winner announcement.
+    If humanScore is less than computerScore, display loser announcement.
+*/
