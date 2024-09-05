@@ -166,19 +166,57 @@ function playGame() {
             break;
         }
     }
+   
+    // let roundCounter = 0;
 
-    let roundCounter = 0;
-
-    while (roundCounter < 5) {
-        roundCounter++;
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    // while (roundCounter < 5) {
+    //     roundCounter++;
+    //     playRound(getHumanChoice(), getComputerChoice());
+    // }
     
-    if (humanScore === computerScore) {
-        console.log("5 rounds are over. Game is a tie!");
-    } else if (humanScore < computerScore){
-        console.log("5 rounds are over. You have lost.");
-    } else {
-        console.log("5 rounds are over. You have won!");
+    // if (humanScore === computerScore) {
+    //     console.log("5 rounds are over. Game is a tie!");
+    // } else if (humanScore < computerScore){
+    //     console.log("5 rounds are over. You have lost.");
+    // } else {
+    //     console.log("5 rounds are over. You have won!");
+    // }
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(`${button.id}`, getComputerChoice());
+    });
+});
+
+function playRound(player, computer){
+    if(computer === player){
+        console.log(`Tie! The computer also chose ${computer}`);
+    return;
+    }
+    switch(player){
+        case "ROCK": 
+            if (computer == "SCISSORS") {
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
+        case "PAPER": 
+            if (computer == "ROCK") {
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
+        case "SCISSORS": 
+            if (computer == "PAPER") {
+                console.log(`You win! ${player} beats ${computer}`);
+            } else {
+                console.log(`You lose! ${computer} beats ${player}`);
+            }
+        break;
     }
 }
+
